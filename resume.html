@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD Shakib's Resume</title>
+    <style>
+        #resume-content{
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="resume-content"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+    <script>
+        async function loadMarkdown() {
+            const response = await fetch("README.md");
+            const text = await response.text();
+            const converter = new showdown.Converter();
+            document.getElementById("resume-content").innerHTML = converter.makeHtml(text);
+        }
+        loadMarkdown();
+    </script>
+</body>
+</html>
