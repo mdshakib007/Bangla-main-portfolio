@@ -30,3 +30,28 @@ showPopupButton.addEventListener('click', (event) => {
 closeBtn.addEventListener('click', () => {
     popup.style.display = 'none';
 });
+
+
+
+
+function sendEmail(event) {
+  if (event) event.preventDefault(); // Prevents form from refreshing the page
+
+  // Get input values
+  let name = document.getElementById("contact-form-name").value;
+  let email = document.getElementById("contact-form-email").value;
+  let message = document.getElementById("contact-form-msg").value;
+
+  // Ensure all fields are filled
+  if (!name || !email || !message) {
+      alert("Please fill out all fields before sending.");
+      return;
+  }
+
+  // Encode message to make it URL-safe
+  let subject = encodeURIComponent("New Contact Form Submission");
+  let body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage:\n${message}`);
+
+  // Open the default email app with pre-filled details
+  window.location.href = `mailto:shakibahmed.528874@gmail.com?subject=${subject}&body=${body}`;
+}

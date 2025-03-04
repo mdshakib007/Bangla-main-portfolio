@@ -446,6 +446,20 @@ nav {
 
 /* contact info here  */
 
+
+.input-field {
+  width: 100%;
+  max-width: 350px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+textarea.input-field {
+  resize: none;
+}
+
 .contact {
   width: 50%;
   height: auto;
